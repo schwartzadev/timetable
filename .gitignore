@@ -5,3 +5,4 @@ env/
 .idea/
 .env
 private.py
+project/timetable/migrations/

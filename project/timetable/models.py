@@ -8,6 +8,10 @@ class Category(models.Model):
     color = models.CharField(max_length=6)
     created = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
     def __str__(self):
         return self.name
 
@@ -20,8 +24,8 @@ class Event(models.Model):
     is_task = models.BooleanField(default=True, blank=True)
     complete = models.BooleanField(default=False)   # blank if is_task is True
     details = models.CharField(max_length=500, blank=True, default='')
-    color = models.CharField(max_length=6)  # not blank -- auto assign color if not provided
-    time = models.TimeField(blank=True)
+    color = models.CharField(max_length=6, blank=True, null=True)  # not blank -- auto assign color if not provided
+    time = models.TimeField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
