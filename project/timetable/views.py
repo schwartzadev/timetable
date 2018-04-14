@@ -4,7 +4,7 @@ from .serializers import EventSerializer, CategorySerializer
 
 
 class EventsViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('day')
     serializer_class = EventSerializer
 
 
