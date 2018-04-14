@@ -1,0 +1,31 @@
+{% if events %}
+    <h3>sort</h3>
+    <ul>
+    {% for c in categories %}
+        <li style="color: #{{ c.color }}">{{ c.name }}</li>
+    {% endfor %}
+    </ul>
+    <hr>
+{% else %}
+    <p>No events exist.</p>
+{% endif %}
+
+{% if events %}
+    <h1 class="title">Agenda</h1>
+    <div class="events-container">
+    {% for event in events %}
+        {% ifchanged event.day %}
+            {% if event.day < today %}
+                <h2 class="day-header overdue" style="color: red;">({{ event.day }})</h2>
+            {% else %}
+                <h2 class="day-header">({{ event.day }})</h2>
+            {% endif %}
+        {% endifchanged %}
+        <div class="event">
+            <h3 class="event-title"><a href="/main/e/{{ event.id }}/">{{ event.title }}</a></h3>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>No events exist.</p>
+{% endif %}

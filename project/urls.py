@@ -20,5 +20,6 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('project.timetable.urls'))
+    path('api/', include('project.timetable.urls')),
+    path('main/', include('project.frontend.urls'))
 ]
